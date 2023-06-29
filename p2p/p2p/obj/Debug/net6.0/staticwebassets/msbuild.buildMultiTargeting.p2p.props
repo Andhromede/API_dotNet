@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\p2p.props" />
+</Project>
