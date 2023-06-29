@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using p2p.Models;
 
 namespace p2pAPI.Models;
 
@@ -9,5 +10,5 @@ namespace p2pAPI.Models;
     {
     }
 
-    public DbSet<Person> Persons { get; set; } = null!;
+    public DbSet<GeneralItem> GeneralItems { get; set; } = null!;
 }
