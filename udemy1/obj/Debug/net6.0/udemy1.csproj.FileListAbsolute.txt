@@ -1,0 +1,15 @@
+C:\Users\Apprenant\Documents\GIT\EXOS\C#\udemy1\bin\Debug\net6.0\udemy1.exe
+C:\Users\Apprenant\Documents\GIT\EXOS\C#\udemy1\bin\Debug\net6.0\udemy1.deps.json
+C:\Users\Apprenant\Documents\GIT\EXOS\C#\udemy1\bin\Debug\net6.0\udemy1.runtimeconfig.json
+C:\Users\Apprenant\Documents\GIT\EXOS\C#\udemy1\bin\Debug\net6.0\udemy1.dll
+C:\Users\Apprenant\Documents\GIT\EXOS\C#\udemy1\bin\Debug\net6.0\udemy1.pdb
+C:\Users\Apprenant\Documents\GIT\EXOS\C#\udemy1\obj\Debug\net6.0\udemy1.csproj.AssemblyReference.cache
+C:\Users\Apprenant\Documents\GIT\EXOS\C#\udemy1\obj\Debug\net6.0\udemy1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Apprenant\Documents\GIT\EXOS\C#\udemy1\obj\Debug\net6.0\udemy1.AssemblyInfoInputs.cache
+C:\Users\Apprenant\Documents\GIT\EXOS\C#\udemy1\obj\Debug\net6.0\udemy1.AssemblyInfo.cs
+C:\Users\Apprenant\Documents\GIT\EXOS\C#\udemy1\obj\Debug\net6.0\udemy1.csproj.CoreCompileInputs.cache
+C:\Users\Apprenant\Documents\GIT\EXOS\C#\udemy1\obj\Debug\net6.0\udemy1.dll
+C:\Users\Apprenant\Documents\GIT\EXOS\C#\udemy1\obj\Debug\net6.0\refint\udemy1.dll
+C:\Users\Apprenant\Documents\GIT\EXOS\C#\udemy1\obj\Debug\net6.0\udemy1.pdb
+C:\Users\Apprenant\Documents\GIT\EXOS\C#\udemy1\obj\Debug\net6.0\udemy1.genruntimeconfig.cache
+C:\Users\Apprenant\Documents\GIT\EXOS\C#\udemy1\obj\Debug\net6.0\ref\udemy1.dll
