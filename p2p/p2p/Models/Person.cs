@@ -2,8 +2,10 @@
 
 namespace p2p.Models
 {
-    public class Person : GeneralItem
+    public class Person
     {
+        public int id { get; set; }
+        public bool is_active { get; set; }
         public string? firstName { get; set; }
         public string? lastName { get; set; }
         public string email { get; set; }

@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "WZzvBsoSWY3mWX76FNNH5skmhSZoud5zrNmlu0nCF7U=",
+  "Source": "p2p",
+  "BasePath": "_content/p2p",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

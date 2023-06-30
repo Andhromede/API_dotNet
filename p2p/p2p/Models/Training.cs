@@ -1,7 +1,9 @@
 ﻿namespace p2p.Models
 {
-    public class Training : GeneralItem
+    public class Training
     {
+        public int id { get; set; }
+        public bool is_active { get; set; }
         public string title { get; set; }
     }
 }
