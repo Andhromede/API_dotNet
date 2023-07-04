@@ -1,4 +1,5 @@
 ﻿using System;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace p2p.Models
 {
@@ -12,6 +13,7 @@ namespace p2p.Models
         public string password { get; set; }
         public string? adress { get; set; }
         public DateTime? birthday { get; set; }
+        public int role { get; set; }
 
         //public int Id_Role { get; set; }
     }

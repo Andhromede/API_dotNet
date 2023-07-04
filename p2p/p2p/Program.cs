@@ -7,10 +7,8 @@ using System.Configuration;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
-//var connectionString = builder.Configuration.GetConnectionString("myConnect");
 builder.Configuration.AddJsonFile("appsettings.json");
 builder.Services.AddDbContext<P2PContext>(options =>
-    //options.UseNpgsql(connectionString)
     options.UseNpgsql(builder.Configuration.GetConnectionString("myConnect"))
 );
 
@@ -28,9 +26,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
 app.MapControllers();
-
 app.Run();

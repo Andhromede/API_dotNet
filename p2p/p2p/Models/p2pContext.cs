@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using p2p.Models;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+
 namespace p2pAPI.Models;
 
 
@@ -23,6 +25,13 @@ public class P2PContext : DbContext
 
     public DbSet<p2p.Models.Training>? Training { get; set; }
 
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Person>()
+            .HasOne(u => u.role)
+            .WithOne(p => p.person)
+            .HasForeignKey<Role>(p => p.id);
+    }
 
     //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     //{
