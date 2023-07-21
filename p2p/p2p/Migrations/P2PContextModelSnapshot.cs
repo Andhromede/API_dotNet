@@ -17,10 +17,55 @@ namespace p2p.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.8")
+                .HasAnnotation("ProductVersion", "7.0.9")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
+
+            modelBuilder.Entity("ChapterLesson", b =>
+                {
+                    b.Property<int>("chaptersid")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("lessonsid")
+                        .HasColumnType("integer");
+
+                    b.HasKey("chaptersid", "lessonsid");
+
+                    b.HasIndex("lessonsid");
+
+                    b.ToTable("ChapterLesson");
+                });
+
+            modelBuilder.Entity("ChapterTag", b =>
+                {
+                    b.Property<int>("chaptersid")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("tagsid")
+                        .HasColumnType("integer");
+
+                    b.HasKey("chaptersid", "tagsid");
+
+                    b.HasIndex("tagsid");
+
+                    b.ToTable("ChapterTag");
+                });
+
+            modelBuilder.Entity("ChapterTraining", b =>
+                {
+                    b.Property<int>("chaptersid")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("trainingsid")
+                        .HasColumnType("integer");
+
+                    b.HasKey("chaptersid", "trainingsid");
+
+                    b.HasIndex("trainingsid");
+
+                    b.ToTable("ChapterTraining");
+                });
 
             modelBuilder.Entity("p2p.Models.Chapter", b =>
                 {
@@ -31,19 +76,25 @@ namespace p2p.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
 
                     b.Property<string>("description")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<int?>("duration")
                         .HasColumnType("integer");
 
-                    b.Property<bool>("is_active")
+                    b.Property<bool>("isActive")
                         .HasColumnType("boolean");
+
+                    b.Property<int>("personId")
+                        .HasColumnType("integer");
 
                     b.Property<string>("title")
                         .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("id");
+
+                    b.HasIndex("personId");
 
                     b.ToTable("Chapter");
                 });
@@ -57,16 +108,22 @@ namespace p2p.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
 
                     b.Property<string>("content")
+                        .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<bool>("is_active")
+                    b.Property<bool>("isActive")
                         .HasColumnType("boolean");
+
+                    b.Property<int>("tagId")
+                        .HasColumnType("integer");
 
                     b.Property<string>("title")
                         .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("id");
+
+                    b.HasIndex("tagId");
 
                     b.ToTable("Lesson");
                 });
@@ -92,7 +149,7 @@ namespace p2p.Migrations
                     b.Property<string>("firstName")
                         .HasColumnType("text");
 
-                    b.Property<bool>("is_active")
+                    b.Property<bool>("isActive")
                         .HasColumnType("boolean");
 
                     b.Property<string>("lastName")
@@ -102,9 +159,72 @@ namespace p2p.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<int?>("roleid")
+                        .HasColumnType("integer");
+
                     b.HasKey("id");
 
+                    b.HasIndex("roleid");
+
                     b.ToTable("Person");
+                });
+
+            modelBuilder.Entity("p2p.Models.Person_Lesson", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
+
+                    b.Property<bool>("isActive")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("isValidate")
+                        .HasColumnType("boolean");
+
+                    b.Property<int>("lessonId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("personId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("lessonId");
+
+                    b.HasIndex("personId");
+
+                    b.ToTable("Person_Lesson");
+                });
+
+            modelBuilder.Entity("p2p.Models.Person_Training", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
+
+                    b.Property<bool>("isActive")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("isAuthor")
+                        .HasColumnType("boolean");
+
+                    b.Property<int>("personId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("trainingId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("personId");
+
+                    b.HasIndex("trainingId");
+
+                    b.ToTable("Person_Training");
                 });
 
             modelBuilder.Entity("p2p.Models.Role", b =>
@@ -115,7 +235,7 @@ namespace p2p.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
 
-                    b.Property<bool>("is_active")
+                    b.Property<bool>("isActive")
                         .HasColumnType("boolean");
 
                     b.Property<string>("name")
@@ -135,7 +255,7 @@ namespace p2p.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
 
-                    b.Property<bool>("is_active")
+                    b.Property<bool>("isActive")
                         .HasColumnType("boolean");
 
                     b.Property<string>("name")
@@ -155,8 +275,11 @@ namespace p2p.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
 
-                    b.Property<bool>("is_active")
+                    b.Property<bool>("isActive")
                         .HasColumnType("boolean");
+
+                    b.Property<int>("tagId")
+                        .HasColumnType("integer");
 
                     b.Property<string>("title")
                         .IsRequired()
@@ -164,7 +287,165 @@ namespace p2p.Migrations
 
                     b.HasKey("id");
 
+                    b.HasIndex("tagId");
+
                     b.ToTable("Training");
+                });
+
+            modelBuilder.Entity("ChapterLesson", b =>
+                {
+                    b.HasOne("p2p.Models.Chapter", null)
+                        .WithMany()
+                        .HasForeignKey("chaptersid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("p2p.Models.Lesson", null)
+                        .WithMany()
+                        .HasForeignKey("lessonsid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("ChapterTag", b =>
+                {
+                    b.HasOne("p2p.Models.Chapter", null)
+                        .WithMany()
+                        .HasForeignKey("chaptersid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("p2p.Models.Tag", null)
+                        .WithMany()
+                        .HasForeignKey("tagsid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("ChapterTraining", b =>
+                {
+                    b.HasOne("p2p.Models.Chapter", null)
+                        .WithMany()
+                        .HasForeignKey("chaptersid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("p2p.Models.Training", null)
+                        .WithMany()
+                        .HasForeignKey("trainingsid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("p2p.Models.Chapter", b =>
+                {
+                    b.HasOne("p2p.Models.Person", "person")
+                        .WithMany("chapters")
+                        .HasForeignKey("personId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("person");
+                });
+
+            modelBuilder.Entity("p2p.Models.Lesson", b =>
+                {
+                    b.HasOne("p2p.Models.Tag", "tag")
+                        .WithMany("lessons")
+                        .HasForeignKey("tagId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("tag");
+                });
+
+            modelBuilder.Entity("p2p.Models.Person", b =>
+                {
+                    b.HasOne("p2p.Models.Role", "role")
+                        .WithMany("persons")
+                        .HasForeignKey("roleid");
+
+                    b.Navigation("role");
+                });
+
+            modelBuilder.Entity("p2p.Models.Person_Lesson", b =>
+                {
+                    b.HasOne("p2p.Models.Lesson", "lesson")
+                        .WithMany("personLessons")
+                        .HasForeignKey("lessonId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("p2p.Models.Person", "person")
+                        .WithMany("personLessons")
+                        .HasForeignKey("personId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("lesson");
+
+                    b.Navigation("person");
+                });
+
+            modelBuilder.Entity("p2p.Models.Person_Training", b =>
+                {
+                    b.HasOne("p2p.Models.Person", "person")
+                        .WithMany("personTrainings")
+                        .HasForeignKey("personId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("p2p.Models.Training", "training")
+                        .WithMany("personTrainings")
+                        .HasForeignKey("trainingId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("person");
+
+                    b.Navigation("training");
+                });
+
+            modelBuilder.Entity("p2p.Models.Training", b =>
+                {
+                    b.HasOne("p2p.Models.Tag", "tag")
+                        .WithMany("trainings")
+                        .HasForeignKey("tagId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("tag");
+                });
+
+            modelBuilder.Entity("p2p.Models.Lesson", b =>
+                {
+                    b.Navigation("personLessons");
+                });
+
+            modelBuilder.Entity("p2p.Models.Person", b =>
+                {
+                    b.Navigation("chapters");
+
+                    b.Navigation("personLessons");
+
+                    b.Navigation("personTrainings");
+                });
+
+            modelBuilder.Entity("p2p.Models.Role", b =>
+                {
+                    b.Navigation("persons");
+                });
+
+            modelBuilder.Entity("p2p.Models.Tag", b =>
+                {
+                    b.Navigation("lessons");
+
+                    b.Navigation("trainings");
+                });
+
+            modelBuilder.Entity("p2p.Models.Training", b =>
+                {
+                    b.Navigation("personTrainings");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Apprenant\\Documents\\GIT\\EXOS\\C#\\api_web_core\\p2p\\p2p\\p2p.csproj": {}
+    "C:\\Users\\andhr\\Desktop\\Projects\\Formations\\5 - Simplon\\.NET\\API_dotNet\\p2p\\p2p\\p2p.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Apprenant\\Documents\\GIT\\EXOS\\C#\\api_web_core\\p2p\\p2p\\p2p.csproj": {
+    "C:\\Users\\andhr\\Desktop\\Projects\\Formations\\5 - Simplon\\.NET\\API_dotNet\\p2p\\p2p\\p2p.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Apprenant\\Documents\\GIT\\EXOS\\C#\\api_web_core\\p2p\\p2p\\p2p.csproj",
+        "projectUniqueName": "C:\\Users\\andhr\\Desktop\\Projects\\Formations\\5 - Simplon\\.NET\\API_dotNet\\p2p\\p2p\\p2p.csproj",
         "projectName": "p2p",
-        "projectPath": "C:\\Users\\Apprenant\\Documents\\GIT\\EXOS\\C#\\api_web_core\\p2p\\p2p\\p2p.csproj",
-        "packagesPath": "C:\\Users\\Apprenant\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Apprenant\\Documents\\GIT\\EXOS\\C#\\api_web_core\\p2p\\p2p\\obj\\",
+        "projectPath": "C:\\Users\\andhr\\Desktop\\Projects\\Formations\\5 - Simplon\\.NET\\API_dotNet\\p2p\\p2p\\p2p.csproj",
+        "packagesPath": "C:\\Users\\andhr\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\andhr\\Desktop\\Projects\\Formations\\5 - Simplon\\.NET\\API_dotNet\\p2p\\p2p\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Apprenant\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\andhr\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,7 +22,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\sdk\\7.0.304\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -40,38 +39,6 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "dependencies": {
-            "Microsoft.EntityFrameworkCore.InMemory": {
-              "target": "Package",
-              "version": "[7.0.8, )"
-            },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "[7.0.8, )"
-            },
-            "Microsoft.EntityFrameworkCore.Tools": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[7.0.8, )"
-            },
-            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
-              "target": "Package",
-              "version": "[7.0.7, )"
-            },
-            "Npgsql.EntityFrameworkCore.PostgreSQL": {
-              "target": "Package",
-              "version": "[7.0.4, )"
-            },
-            "Npgsql.EntityFrameworkCore.PostgreSQL.Design": {
-              "target": "Package",
-              "version": "[1.1.0, )"
-            },
-            "Swashbuckle.AspNetCore": {
-              "target": "Package",
-              "version": "[6.5.0, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
@@ -83,15 +50,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

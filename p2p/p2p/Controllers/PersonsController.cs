@@ -1,12 +1,14 @@
-﻿using System;
+﻿/*using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;*/
+using p2p.Helpers;
 using p2p.Models;
 using p2pAPI.Models;
+/*using static p2pAPI.Helpers.DtoRecordsHelpers;*/
 
 namespace p2p.Controllers
 {
@@ -51,7 +53,6 @@ namespace p2p.Controllers
         }
 
         // PUT: api/Person/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutPerson(int id, Person person)
         {
@@ -81,15 +82,41 @@ namespace p2p.Controllers
             return NoContent();
         }
 
+
+
+
+
+
         // POST: api/Person
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Person>> PostPerson(Person person)
+        public async Task<ActionResult<Person>> PostPerson(PersonDto.create personDto)
         {
+            var role = _context.Role.FirstOrDefault(item => item.Id == personDto.roleId);
+            Console.Writline(role);
+
+            Person person = new Person
+            {
+                id = personDto.id,
+                firstName = personDto.firstName,
+                lastName = personDto.lastName,
+                email = personDto.email,
+                password = personDto.password,
+                adress = personDto.adress,
+                birthday = personDto.birthday,
+                role = role,
+                isActive = true,
+            };
+
+            /*_context.SaveChanges();*/
             _context.Person.Add(person);
             await _context.SaveChangesAsync();
-            return CreatedAtAction(nameof(GetPerson), new { id = person.id }, person);
+            return CreatedAtAction(nameof(GetPerson), new { id = personDto.id }, personDto);
         }
+
+
+
+
+
 
         // DELETE: api/Person/5
         [HttpDelete("{id}")]
